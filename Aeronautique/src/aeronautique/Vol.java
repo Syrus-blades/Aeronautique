@@ -7,8 +7,8 @@ public class Vol {
 	private int numVol;
 	private int numAv;
 	private int numPil;
-	private String nille_Dep;
-	private String nille_Arr;
+	private String ville_Dep;
+	private String ville_Arr;
 	private GregorianCalendar h_DEP;
 	private GregorianCalendar h_ARR; 
 	
@@ -19,13 +19,13 @@ public class Vol {
 	public Vol(int numVol, int numAv, int numPil, String ville_Dep, String ville_Arr, GregorianCalendar h_DEP,
 			GregorianCalendar h_ARR) {
 		super();
-		numAv = numVol;
-		numPil = numAv;
-		numAv = numPil;
-		nille_Dep = ville_Dep;
-		nille_Arr = ville_Arr;
-		h_ARR = h_DEP;
-		h_DEP = h_ARR;
+		this.numAv = numVol;
+		this.numPil = numAv;
+		this.numAv = numPil;
+		this.ville_Dep = ville_Dep;
+		this.ville_Arr = ville_Arr;
+		this.h_ARR = h_DEP;
+		this.h_DEP = h_ARR;
 	}
 
 
