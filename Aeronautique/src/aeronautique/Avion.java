@@ -6,7 +6,7 @@ public class Avion {
 	private String Loc;
 	private int Capacite;
 	
-		
+		///h
 	public Avion(int numero, String nom, String loc, int capacite) {
 		super();
 		Numero = numero;
