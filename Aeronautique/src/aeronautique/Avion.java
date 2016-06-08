@@ -1,74 +1,74 @@
 package aeronautique;
 
 public class Avion {
-	private int Numero;
-	private String Nom;
-	private String Loc;
-	private int Capacite;
+	private int numero;
+	private String nom;
+	private String loc;
+	private int capacite;
 	
 		///h
 	public Avion(int numero, String nom, String loc, int capacite) {
 		super();
-		Numero = numero;
-		Nom = nom;
-		Loc = loc;
-		Capacite = capacite;
+		this.numero = numero;
+		this.nom = nom;
+		this.loc = loc;
+		this.capacite = capacite;
 	}
 		
 	
 	
 	
 	public int getNumero() {
-		return Numero;
+		return numero;
 	}
 
 
 
 
 	public void setNumero(int numero) {
-		Numero = numero;
+		numero = numero;
 	}
 
 
 
 
 	public String getNom() {
-		return Nom;
+		return nom;
 	}
 
 
 
 
 	public void setNom(String nom) {
-		Nom = nom;
+		nom = nom;
 	}
 
 
 
 
 	public String getLoc() {
-		return Loc;
+		return loc;
 	}
 
 
 
 
 	public void setLoc(String loc) {
-		Loc = loc;
+		loc = loc;
 	}
 
 
 
 
 	public int getCapacite() {
-		return Capacite;
+		return capacite;
 	}
 
 
 
 
 	public void setCapacite(int capacite) {
-		Capacite = capacite;
+		capacite = capacite;
 	}
 
 
@@ -76,7 +76,7 @@ public class Avion {
 
 	@Override
 	public String toString() {
-		return "Avion [Numero=" + Numero + ", Nom=" + Nom + ", Loc=" + Loc + ", Capacite=" + Capacite + "]";
+		return "Avion [Numero=" + numero + ", Nom=" + nom + ", Loc=" + loc + ", Capacite=" + capacite + "]";
 	}
 	
 	

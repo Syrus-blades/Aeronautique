@@ -4,13 +4,13 @@ import java.util.GregorianCalendar;
 
 public class Vol {
 
-	private int NumVol;
-	private int NumAv;
-	private int NumPil;
-	private String Ville_Dep;
-	private String Ville_Arr;
-	private GregorianCalendar H_DEP;
-	private GregorianCalendar H_ARR; 
+	private int numVol;
+	private int numAv;
+	private int numPil;
+	private String nille_Dep;
+	private String nille_Arr;
+	private GregorianCalendar h_DEP;
+	private GregorianCalendar h_ARR; 
 	
 	
 	
@@ -19,13 +19,13 @@ public class Vol {
 	public Vol(int numVol, int numAv, int numPil, String ville_Dep, String ville_Arr, GregorianCalendar h_DEP,
 			GregorianCalendar h_ARR) {
 		super();
-		NumVol = numVol;
-		NumAv = numAv;
-		NumPil = numPil;
-		Ville_Dep = ville_Dep;
-		Ville_Arr = ville_Arr;
-		H_DEP = h_DEP;
-		H_ARR = h_ARR;
+		numAv = numVol;
+		numPil = numAv;
+		numAv = numPil;
+		nille_Dep = ville_Dep;
+		nille_Arr = ville_Arr;
+		h_ARR = h_DEP;
+		h_DEP = h_ARR;
 	}
 
 
