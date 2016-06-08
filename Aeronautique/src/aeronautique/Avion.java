@@ -5,6 +5,7 @@ public class Avion {
 	private String nom;
 	private String loc;
 	private int capacite;
+	private int enplus;
 	
 		///h
 	public Avion(int numero, String nom, String loc, int capacite) {
@@ -13,6 +14,7 @@ public class Avion {
 		this.nom = nom;
 		this.loc = loc;
 		this.capacite = capacite;
+		this.enplus=42;
 	}
 		
 	
