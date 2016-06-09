@@ -5,7 +5,7 @@ public class Avion {
 	private String nom;
 	private String loc;
 	private int capacite;
-	private int enplus;
+	//private int enplus;
 	
 		///h
 	public Avion(int numero, String nom, String loc, int capacite) {
@@ -14,7 +14,7 @@ public class Avion {
 		this.nom = nom;
 		this.loc = loc;
 		this.capacite = capacite;
-		this.enplus =12;
+		//this.enplus =12;
 	}
 		
 	
@@ -28,7 +28,7 @@ public class Avion {
 
 
 	public void setNumero(int numero) {
-		numero = numero;
+		this.numero = numero;
 	}
 
 
@@ -42,7 +42,7 @@ public class Avion {
 
 
 	public void setNom(String nom) {
-		nom = nom;
+		this.nom = nom;
 	}
 
 
@@ -56,7 +56,7 @@ public class Avion {
 
 
 	public void setLoc(String loc) {
-		loc = loc;
+		this.loc = loc;
 	}
 
 
