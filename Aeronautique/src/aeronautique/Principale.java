@@ -19,6 +19,7 @@ public class Principale {
 		Avion Ravion =(new AvionDAO()).find(744);
 		System.out.println("avion recherché "+ Ravion);
 	//	Connexion.afficheSelectEtoile("Avion");
+		Connexion.afficheSelectEtoile("VOL");
 		Connexion.fermer();
 
 	}
