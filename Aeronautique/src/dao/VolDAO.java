@@ -12,11 +12,29 @@ import aeronautique.Vol;
 public class VolDAO extends DAO<Vol> {
 	private static final String TABLE = "Vol";
 	private static final String CLE_PRIMAIRE = "numVol";
+	
+	
+	
+/*	
+	public Boolean isexiste(){
+		  ResultSet resultat = sql.execute();
+		    if (resultat.next()) {
+		//pas vide
+		} else {
+		//vide
+		}
+		
+		
+		
+	}*/
 	@Override
 	public boolean create(Vol vol) {
 		boolean rep= true;
+		 
+		
 		try {
-			String requete= "INSERT INTO "+TABLE+" (nomAv,numPil,ville_DEP,ville_ARR,H_DEP,H_ARR) VALUES (?,?,?)";
+			
+			String requete= "INSERT INTO "+TABLE+" (numAv,numPil,ville_DEP,ville_ARR,H_DEP,H_ARR) VALUES (?,?,?,?,?,?)";
 			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
 			pst.setInt(1,vol.getNumAv());
 			pst.setInt(2,vol.getNumPil());
@@ -30,7 +48,7 @@ public class VolDAO extends DAO<Vol> {
 
 			//MAJ identifiant
 			vol.setNumPil(Connexion.getMaxId(CLE_PRIMAIRE, TABLE));
-
+			
 		} catch (SQLException e) {
 			rep=false;
 			e.printStackTrace();
@@ -54,6 +72,9 @@ public class VolDAO extends DAO<Vol> {
 		}
 		return rep;
 	}
+	
+	
+	
 	@Override
 	public boolean update(Vol vol) {
 		boolean rep = true;
@@ -81,6 +102,10 @@ public class VolDAO extends DAO<Vol> {
 		}
 		return rep;
 	}
+	
+	
+	
+	
 	@Override
 	public Vol find(int id) {
 		Vol vol = null;

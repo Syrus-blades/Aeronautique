@@ -57,8 +57,7 @@ public class AvionDAO extends DAO<Avion> {
 		boolean rep = true;
 
 		try {
-			String requete= "UPDATE "+TABLE+" SET nomAv = ?, LOC = ?, capacite =?" 
-					+"WHERE "+CLE_PRIMAIRE+"= ?";
+			String requete= "UPDATE "+TABLE+" SET nomAv = ?, LOC = ?, CAP =?"+" WHERE "+CLE_PRIMAIRE+"= ?";
 			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
 
 			pst.setString(1,av.getNom());
@@ -95,4 +94,23 @@ public class AvionDAO extends DAO<Avion> {
 		}
 		return avion;
 	}
+	
+	
+	public void afficheSelectEtoileAvion() {
+		 		System.out.println("--- Avion non utilisé ---");
+		 		String clauseWhere = "numav NOT IN (SELECT numAv From Vol)";
+		 	
+		 
+		 		System.out.println("--- Avion contraint par Vol --- ");
+		 		clauseWhere = "numav IN (SELECT numAv From Vol)";
+		 		Connexion.afficheSelectEtoile("Avion", clauseWhere);
+		 		
+		 	}
+	
+	
+	
+	
+	
+	
+	
 }
