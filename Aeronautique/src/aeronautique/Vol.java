@@ -34,10 +34,93 @@ public class Vol {
 		this.h_ARR = h_DEP;
 		this.h_DEP = h_ARR;
 	}
-public static void main(String[] args) {
-		// TODO Auto-generated method stgub
+
+
+
+	public int getNumVol() {
+		return numVol;
+	}
+
+
+
+	public void setNumVol(int numVol) {
+		this.numVol = numVol;
+	}
+
+
+
+	public int getNumAv() {
+		return numAv;
+	}
+
+
+
+	public void setNumAv(int numAv) {
+		this.numAv = numAv;
+	}
+
+
+
+	public int getNumPil() {
+		return numPil;
+	}
+
+
+
+	public void setNumPil(int numPil) {
+		this.numPil = numPil;
+	}
+
+
+
+	public String getVille_Dep() {
+		return ville_Dep;
+	}
+
+
+
+	public void setVille_Dep(String ville_Dep) {
+		this.ville_Dep = ville_Dep;
+	}
+
+
+
+	public String getVille_Arr() {
+		return ville_Arr;
+	}
+
+
+
+	public void setVille_Arr(String ville_Arr) {
+		this.ville_Arr = ville_Arr;
+	}
+
+
+
+	public GregorianCalendar getH_DEP() {
+		return h_DEP;
+	}
+
+
+
+	public void setH_DEP(GregorianCalendar h_DEP) {
+		this.h_DEP = h_DEP;
+	}
+
+
+
+	public GregorianCalendar getH_ARR() {
+		return h_ARR;
+	}
+
+
+
+	public void setH_ARR(GregorianCalendar h_ARR) {
+		this.h_ARR = h_ARR;
+	}
+	
 
 
 	}
 
-}
+

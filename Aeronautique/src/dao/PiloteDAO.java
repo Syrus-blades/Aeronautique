@@ -1,31 +1,28 @@
 package dao;
-
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import aeronautique.Pilote;
 
 
-import aeronautique.Avion;
 
-public class AvionDAO extends DAO<Avion> {
-	private static final String TABLE = "Avion";
-	private static final String CLE_PRIMAIRE = "numAv";
-
+public class PiloteDAO extends DAO<Pilote> {
+	private static final String TABLE = "Pilote";
+	private static final String CLE_PRIMAIRE = "numPil";
 	@Override
-	public boolean create(Avion av) {
+	public boolean create(Pilote pl) {
 		boolean rep= true;
 		try {
-			String requete= "INSERT INTO "+TABLE+" (nomAv,LOC,CAP) VALUES (?,?,?)";
+			String requete= "INSERT INTO "+TABLE+" (nomPil,adr,sal) VALUES (?,?,?)";
 			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
-			pst.setString(1,av.getNom());
-			pst.setString(2,av.getLoc());
-			pst.setInt(3,av.getCapacite());
+			pst.setString(1,pl.getNomPil());
+			pst.setString(2,pl.getAdr());
+			pst.setInt(3,pl.getSal());
 			pst.executeUpdate();
 
 			//MAJ identifiant
-			av.setNumero(Connexion.getMaxId(CLE_PRIMAIRE, TABLE));
+			pl.setNumPil(Connexion.getMaxId(CLE_PRIMAIRE, TABLE));
 
 		} catch (SQLException e) {
 			rep=false;
@@ -34,13 +31,11 @@ public class AvionDAO extends DAO<Avion> {
 		return rep;
 	}
 
-
-
 	@Override
-	public boolean delete(Avion av) {
+	public boolean delete(Pilote pl) {
 		boolean rep= true;
 		try {
-			int id  = av.getNumero();
+			int id  = pl.getNumPil();
 			String requete= "DELETE* FROM "+TABLE+" WHERE"+CLE_PRIMAIRE+"= ?";
 			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
 			pst.setInt(1,id);
@@ -51,48 +46,44 @@ public class AvionDAO extends DAO<Avion> {
 		}
 		return rep;
 	}
-
 	@Override
-	public boolean update(Avion av) {
+	public boolean update(Pilote pl) {
 		boolean rep = true;
-
 		try {
-			String requete= "UPDATE "+TABLE+" SET nomAv = ?, LOC = ?, capacite =?" 
+			String requete= "UPDATE "+TABLE+" SET nomPil = ?, adr = ?, sal =?" 
 					+"WHERE "+CLE_PRIMAIRE+"= ?";
 			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
 
-			pst.setString(1,av.getNom());
-			pst.setString(2,av.getLoc());
-			pst.setInt(3,av.getCapacite());
-			pst.setInt(4,av.getNumero());
+			pst.setString(1,pl.getNomPil());
+			pst.setString(2,pl.getAdr());
+			pst.setInt(3,pl.getSal());
+			pst.setInt(4,pl.getNumPil());
 			pst.executeUpdate();
-
-
 
 		} catch (SQLException e) {
 
 			System.out.println(e.getMessage());
 
 			rep= false;
-
 		}
 		return rep;
 	}
 
 	@Override
-	public Avion find(int id) { 
-		Avion avion = null;
+	public Pilote find(int id) {
+		Pilote pilote = null;
 		try {
 			String requete= "SELECT* FROM "+TABLE+" WHERE "+CLE_PRIMAIRE+" = "+id;
 			ResultSet rs = Connexion.executeQuery(requete);
 			rs.next();
-			String nom = rs.getString("nomAv");
-			String loc = rs.getString("LOC");
-			int capacite= rs.getInt("CAP");
-			avion = new Avion (id, nom, loc , capacite);		
+			String nomPil = rs.getString("nomPil");
+			String adr = rs.getString("adr");
+			int sal = rs.getInt("sal");
+			pilote = new Pilote (id, nomPil, adr ,sal);		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return avion;
+		return pilote;
 	}
 }
+

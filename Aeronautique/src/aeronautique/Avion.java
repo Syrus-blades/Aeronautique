@@ -70,7 +70,7 @@ public class Avion {
 
 
 	public void setCapacite(int capacite) {
-		capacite = capacite;
+		this.capacite = capacite;
 	}
 
 
