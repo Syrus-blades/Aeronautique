@@ -13,7 +13,19 @@ public class VolDAO extends DAO<Vol> {
 	private static final String TABLE = "Vol";
 	private static final String CLE_PRIMAIRE = "numVol";
 	
-	
+	private boolean isCheck(int numPil, int numAv){
+		boolean test = true;
+		try {
+			String reqPil= "SELECT numPil FROM Pilote where numPil = "+numPil;
+			String reqAV= "SELECT numAv FROM avion where numAv = "+numAv;
+			ResultSet rsPil = Connexion.executeQuery(reqPil);
+			ResultSet rsAv = Connexion.executeQuery(reqAV);
+			test = rsPil.next() && rsAv.next();
+		} catch (SQLException e) {
+			System.out.println("echec de la tentative d'interrogation : "+e.getMessage());
+		}
+		return test;
+	}
 	
 /*	
 	public Boolean isexiste(){
@@ -33,7 +45,7 @@ public class VolDAO extends DAO<Vol> {
 		 
 		
 		try {
-			
+			if (isCheck(vol.getNumPil(), vol.getNumAv())) {
 			String requete= "INSERT INTO "+TABLE+" (numAv,numPil,ville_DEP,ville_ARR,H_DEP,H_ARR) VALUES (?,?,?,?,?,?)";
 			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
 			pst.setInt(1,vol.getNumAv());

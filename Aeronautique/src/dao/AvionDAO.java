@@ -12,7 +12,22 @@ import aeronautique.Avion;
 public class AvionDAO extends DAO<Avion> {
 	private static final String TABLE = "Avion";
 	private static final String CLE_PRIMAIRE = "numAv";
-
+	
+	
+	
+	private boolean isSupp(int id){
+		boolean erase = true;
+		try{
+			String requete= "SELECT numAv FROM avion where numAv = "+id;
+			ResultSet rs = Connexion.executeQuery(requete);
+			rs.next();
+			
+		}
+		catch(SQLException e){
+		System.err.println("immposible de supprimeé ce parametre") ;
+		}
+		return erase;
+	}
 	@Override
 	public boolean create(Avion av) {
 		boolean rep= true;
@@ -39,7 +54,10 @@ public class AvionDAO extends DAO<Avion> {
 	@Override
 	public boolean delete(Avion av) {
 		boolean rep= true;
-		try {
+		if (isSupp(av.getNumero()))///verifie que peut tetre supp return true 
+		{
+			
+			try {
 			int id  = av.getNumero();
 			String requete= "DELETE* FROM "+TABLE+" WHERE"+CLE_PRIMAIRE+"= ?";
 			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
@@ -47,11 +65,13 @@ public class AvionDAO extends DAO<Avion> {
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			rep=false;
+	
 			e.printStackTrace();
+		}
 		}
 		return rep;
 	}
-
+	
 	@Override
 	public boolean update(Avion av) {
 		boolean rep = true;
